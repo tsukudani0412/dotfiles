@@ -30,8 +30,11 @@ source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", from:github
 zplug "zsh-users/zsh-completions", from:github
-zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/command-not-found",   from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions", from:github
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "plugins/thefuck", from:oh-my-zsh
+zplug "plugins/fasd", from:oh-my-zsh
 zplug "modules/history", from:prezto
 zplug "modules/directory", from:prezto
 
