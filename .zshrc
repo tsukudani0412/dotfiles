@@ -52,4 +52,3 @@ fi
 zplug load
 
 (( ! ${+functions[p10k]} )) || p10k finalize
-eval $(thefuck --alias --enable-experimental-instant-mode)
