@@ -14,6 +14,7 @@ set showcmd
 
 
 " 見た目系
+colorscheme molokai
 " 行番号を表示
 set number
 " 現在の行を強調表示
@@ -22,12 +23,11 @@ set cursorline
 set virtualedit=onemore
 " インデントはスマートインデント
 set smartindent
-" ビープ音を可視化
-set visualbell
 " 括弧入力時の対応する括弧を表示
 set showmatch
 " ステータスラインを常に表示
 set laststatus=2
+set statusline=%F%m%h%w\ %<[ENC=%{&fenc!=''?&fenc:&enc}]\ [FMT=%{&ff}]\ [TYPE=%Y]\ %=[CODE=0x%02B]\ [POS=%l/%L(%02v)]
 " コマンドラインの補完
 set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
