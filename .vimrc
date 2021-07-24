@@ -36,6 +36,7 @@ nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
 
+set mouse=a
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
