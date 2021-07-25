@@ -15,7 +15,6 @@ setopt print_eight_bit		# 日本語ファイル名等8ビットを通す
 bindkey -v			# Vi キーバインド
 export LANG=ja_JP.UTF-8		# 文字コードの指定
 autoload -Uz colors && colors	# 色を使用出来るようにする
-setopt hist_reduce_blanks	# ヒストリに保存するときに余分なスペースを削除する
 autoload -Uz zmv		#zmvで一括置換
 alias zmv='noglob zmv -W'
 # 補完で小文字でも大文字にマッチさせる
@@ -29,8 +28,42 @@ alias ls="ls --color"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-bindkey -e
-bindkey '^R' history-incremental-search-backward
+#ヒストリ設定
+setopt hist_reduce_blanks	# ヒストリに保存するときに余分なスペースを削除する
+HISTFILE=$HOME/.zhistory
+HISTSIZE=100000
+SAVEHIST=1000000
+setopt inc_append_history
+setopt share_history
+
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+# cdr
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+    zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+fi
+
+function peco-cdr () {
+    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-cdr
+bindkey '^E' peco-cdr
 
 # zplug 
 source ~/.zplug/init.zsh
