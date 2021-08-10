@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 DOTPATH=~/.dotfiles
 GITHUB_URL=github.com/koki-koba/dotfiles
 # git が使えるなら git
