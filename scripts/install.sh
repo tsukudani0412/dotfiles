@@ -27,17 +27,18 @@ else
     false
 fi
 
-cd ~/.dotfiles
-if [ $? -ne 0 ]; then
+if [ ! -e $DOTPATH ]; then
     echo "not found: $DOTPATH"
     echo ""
     false
 fi
 
-# 移動できたらリンクを実行する
-for f in .??*
-do
-    [ "$f" = ".git" ] && continue
+cd ~/.dotfiles
 
-    ln -snfv "$DOTPATH/$f" "$HOME/$f"
-done
+echo "Initializing..."
+echo ""
+make init
+
+echo "Deploying..."
+echo ""
+make deploy
