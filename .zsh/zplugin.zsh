@@ -29,12 +29,16 @@ zinit light zsh-users/zsh-autosuggestions
 zinit snippet PZT::modules/history/init.zsh
 zinit snippet PZT::modules/directory/init.zsh
 
+zinit ice from'gh-r' as'program' pick'fzf'
+zinit light junegunn/fzf
+
 zinit ice wait'0' lucid
 zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
 zinit ice wait'0' lucid 
 zinit snippet OMZ::plugins/zsh_reload/zsh_reload.plugin.zsh
 zinit ice wait'1' lucid
 zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit cdclear -q
 zinit ice wait'3' lucid
 zinit light supercrabtree/k
 

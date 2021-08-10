@@ -1,11 +1,11 @@
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+function fzf-history-selection() {
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | fzf --ansi`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
 
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+zle -N fzf-history-selection
+bindkey '^R' fzf-history-selection
 
 # cdr
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
@@ -17,13 +17,13 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
 fi
 
-function peco-cdr () {
-    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
+function fzf-cdr () {
+    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | fzf --ansi )"
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
 }
-zle -N peco-cdr
-bindkey '^E' peco-cdr
+zle -N fzf-cdr
+bindkey '^E' fzf-cdr
 

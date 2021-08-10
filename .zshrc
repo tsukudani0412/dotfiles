@@ -17,10 +17,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 unsetopt promptcr
 #lsに色付け
-export EXA_COLORS='di=01;34:da=1;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-alias ls="exa -l -h -@ -m --git --icons --time-style=long-iso --group-directories-first"
-alias l1="exa -1"
-alias la="exa -l -h -a -@ -m --git --icons --time-style=long-iso --group-directories-first"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
