@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 DOTPATH=~/.dotfiles
-GITHUB_URL=github.com/koki-koba/dotfiles
+GITHUB_URL=https://github.com/koki-koba/dotfiles
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
