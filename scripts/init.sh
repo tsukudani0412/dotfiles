@@ -1,6 +1,7 @@
-#!/bin/zsh
+#!/bin/sh
 CARGO_PACKAGES="exa bat bandwhich procs bottom bingrep hexyl"
 echo -n "Install zinit? (y/n)"
+echo ""
 read ANS
 
 case $ANS in 
@@ -11,10 +12,8 @@ case $ANS in
     ;;
 esac
 
-source ~/.zshrc
-zplugin self-update
-
 echo -n "Install cargo? (y/n)"
+echo ""
 read ANS 
 
 case $ANS in
@@ -27,6 +26,7 @@ case $ANS in
 esac
 
 echo -n "Install cargo packages($CARGO_PACKAGES)? (y/n) "
+echo ""
 read ANS
 
 case $ANS in
