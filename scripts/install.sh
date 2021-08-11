@@ -1,6 +1,11 @@
 #!/bin/bash -eu
 DOTPATH=~/.dotfiles
 GITHUB_URL=https://github.com/koki-koba/dotfiles
+#zsh 確認
+if !type"zsh" > /dev/null 2>&1; then
+    echo "zsh not found"
+		exit
+fi
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
@@ -24,21 +29,21 @@ elif type "curl" > /dev/null 2>&1 || type "wget"> /dev/null 2>&1; then
 else
     echo "curl or wget required"
     echo ""
-    false
+    exit
 fi
 
 if [ ! -e $DOTPATH ]; then
     echo "not found: $DOTPATH"
     echo ""
-    false
+    exit
 fi
 
 cd ~/.dotfiles
 
 echo "Initializing..."
 echo ""
-make init
+zsh make init
 
 echo "Deploying..."
 echo ""
-make deploy
+zsh make deploy

@@ -29,8 +29,14 @@ zinit light zsh-users/zsh-autosuggestions
 zinit snippet PZT::modules/history/init.zsh
 zinit snippet PZT::modules/directory/init.zsh
 
-zinit ice from'gh-r' as'program' pick'fzf'
-zinit light junegunn/fzf
+zinit from'gh-r' as'null' lucid for \
+	extract sbin'fzf' junegunn/fzf  \
+	sbin'btm' ClementTsang/bottom \
+	sbin'bandwhich' imsnif/bandwhich \
+	bpick'*lnx*' sbin'procs' dalance/procs \
+	bpick'*musl*' mv'bin/exa -> exa' sbin'exa' ogham/exa \
+	bpick'*linux-musl*' mv'hexyl*/hexyl -> hexyl' sbin'hexyl' @sharkdp/hexyl \
+	bpick'*linux-musl*' mv'bat*/bat -> bat' sbin'bat' @sharkdp/bat
 
 zinit ice wait'0' lucid
 zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh

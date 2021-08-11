@@ -1,6 +1,4 @@
 #!/bin/bash -eu
-#Deploy bat config
-ln -sfnv ~/.dotfiles/config/bat ~/.config/bat
-
 #Deploy vim cconfig
-ln -sfnv ~/.dotfiles/config/vim ~/.config/vim
+mkdir ~/.config
+ln -sfnv $DOTFILES/config/vim ~/.config/vim
