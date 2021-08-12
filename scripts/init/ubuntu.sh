@@ -5,4 +5,4 @@ sudo sed -i.bak -r 's!(deb|deb-src) \S+!\1 mirror+http://mirrors.ubuntu.com/mirr
 sudo apt update
 
 #install packages
-sudo apt install zsh git curl wget unzip make tmux
+sudo apt install zsh git curl wget unzip make tmux vim

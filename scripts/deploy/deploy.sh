@@ -1,8 +1,6 @@
 #!/bin/zsh
 set -eu
-if [ ! -e ~/config ]; then
-	mkdir ~/.config
-fi
+[ -e ~/.config ] || mkdir ~/.config
 
 if type "bat" > /dev/null 2>&1; then
 	echo "Create link to config directory."
