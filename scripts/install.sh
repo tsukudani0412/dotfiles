@@ -13,7 +13,7 @@ if type "git" > /dev/null 2>&1; then
 
 # 使えない場合は curl か wget を使用する
 elif type "curl" > /dev/null 2>&1 || type "wget"> /dev/null 2>&1; then
-    tarball="https://github.com/koki-koba/dotfiles/archive/master.tar.gz"
+    tarball="https://github.com/koki-koba/dotfiles/archive/refs/heads/main.tar.gz"
 
     # どっちかでダウンロードして，tar に流す
     if type "curl" > /dev/null 2>&1; then
