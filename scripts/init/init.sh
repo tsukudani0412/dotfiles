@@ -12,6 +12,6 @@ case "$DISTRIB_ID" in
 		;;
 esac
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 zsh ~/.zshrc
