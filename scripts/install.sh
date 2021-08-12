@@ -39,7 +39,7 @@ else
 	false
 fi
 
-cd ~/.dotfiles
+cd $DOTPATH
 
 echo "Initializing..."
 echo ""

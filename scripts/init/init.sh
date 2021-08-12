@@ -13,3 +13,5 @@ case "$DISTRIB_ID" in
 	* )
 		;;
 esac
+
+zsh source ~/.zshrc

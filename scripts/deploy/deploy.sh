@@ -6,6 +6,3 @@ fi
 
 #Deploy vim config
 ln -sfnv $DOTFILES/config/vim ~/.config/vim
-
-#Deploy bat config
-ln -sfnv $DOTFILES/config/bat ~/.config/bat
