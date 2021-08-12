@@ -3,14 +3,14 @@ set -eu
 DOTPATH=~/.dotfiles
 GITHUB_URL=https://github.com/koki-koba/dotfiles
 #zsh 確認
-if (!type "zsh" > /dev/null 2>&1) || (!type "make" > /dev/null 2>&1); then
+if !(type "zsh" > /dev/null 2>&1) || !(type "make" > /dev/null 2>&1); then
     echo "zsh not found"
 		exit
 fi
 
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
-	if [ ! -e $DOTPATH]; then
+	if [ ! -e $DOTPATH ]; then
 		git clone --recursive "$GITHUB_URL" "$DOTPATH"
 	else
 		cd $DOTPATH
@@ -43,8 +43,8 @@ cd ~/.dotfiles
 
 echo "Initializing..."
 echo ""
-zsh make init
+make init
 
 echo "Deploying..."
 echo ""
-zsh make deploy
+make deploy
