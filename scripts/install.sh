@@ -3,8 +3,8 @@ set -eu
 DOTPATH=~/.dotfiles
 GITHUB_URL=https://github.com/koki-koba/dotfiles
 #zsh 確認
-if !(type "zsh" > /dev/null 2>&1) || !(type "make" > /dev/null 2>&1); then
-    echo "zsh not found"
+if !(type "make" > /dev/null 2>&1); then
+    echo "make not found"
 		exit
 fi
 
@@ -31,7 +31,7 @@ elif type "curl" > /dev/null 2>&1 || type "wget"> /dev/null 2>&1; then
 	fi | tar zxv
 
     # 解凍したら，DOTPATH に置く
-	mv -f dotfiles-master "$DOTPATH"
+	mv -f dotfiles-main "$DOTPATH"
 
 else
 	echo "curl or wget required"
