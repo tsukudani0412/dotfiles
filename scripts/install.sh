@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 DOTPATH=~/.dotfiles
-GITHUB_URL=https://github.com/koki-koba/dotfiles.git
+GITHUB_URL="https://github.com/koki-koba/dotfiles.git"
 #zsh 確認
 if !(type "make" > /dev/null 2>&1); then
     echo "make not found"
