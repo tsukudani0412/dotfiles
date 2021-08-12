@@ -31,13 +31,13 @@ zinit snippet PZT::modules/directory/init.zsh
 
 zinit from'gh-r' as'null' lucid for \
 	extract sbin'fzf' junegunn/fzf  \
-	sbin'gomi' b4b4r07/gomi\
+	sbin'gomi' b4b4r07/gomi \
 	sbin'btm' ClementTsang/bottom \
 	sbin'bandwhich' imsnif/bandwhich \
 	bpick'*lnx*' sbin'procs' dalance/procs \
-	bpick'*musl*' mv'bin/exa -> exa' sbin'exa' ogham/exa \
-	bpick'*linux-musl*' mv'hexyl*/hexyl -> hexyl' sbin'hexyl' @sharkdp/hexyl \
-	bpick'*linux-musl*' mv'bat*/bat -> bat' sbin'bat' @sharkdp/bat
+	bpick'*musl*'  sbin'bin/exa' ogham/exa \
+	bpick'*linux-musl*' sbin'hexyl*/hexyl' @sharkdp/hexyl \
+	bpick'*linux-musl*' sbin'bat*/bat' @sharkdp/bat
 
 zinit ice wait'0' lucid
 zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
