@@ -1,6 +1,6 @@
 #!/bin/bash
 set -eu
-if [! -e ~/config ]; then
+if [ ! -e ~/config ]; then
 	mkdir ~/.config
 fi
 
