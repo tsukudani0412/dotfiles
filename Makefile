@@ -8,4 +8,4 @@ deploy:
 	@$(foreach val, $(wildcard ./scripts/deploy/*.sh), bash $(val);)
 
 init:
-	@$(foreach val, $(wildcard ./scripts/init/*.sh), bash $(val);)
+	@$(foreach val, $(wildcard ./scripts/init/init.sh), bash $(val);)

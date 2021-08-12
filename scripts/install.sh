@@ -1,4 +1,5 @@
-#!/bin/bash -eu
+#!/bin/bash
+set -eu
 DOTPATH=~/.dotfiles
 GITHUB_URL=https://github.com/koki-koba/dotfiles
 #zsh 確認
@@ -29,13 +30,13 @@ elif type "curl" > /dev/null 2>&1 || type "wget"> /dev/null 2>&1; then
 else
     echo "curl or wget required"
     echo ""
-    exit
+    false
 fi
 
 if [ ! -e $DOTPATH ]; then
     echo "not found: $DOTPATH"
     echo ""
-    exit
+    false
 fi
 
 cd ~/.dotfiles
