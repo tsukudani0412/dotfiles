@@ -8,3 +8,5 @@ alias la="exa -l -h -a -@ -m --git --icons --time-style=long-iso --group-directo
 alias ll="exa -l -h -@ -m --git --icons --time-style=long-iso --group-directories-first"
 
 alias rm="gomi"
+
+export LANG=en_US.UTF-8
