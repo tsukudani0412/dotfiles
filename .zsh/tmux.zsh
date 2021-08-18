@@ -4,7 +4,7 @@ function is_screen_running() { [ ! -z "$STY" ]; }
 function is_tmux_runnning() { [ ! -z "$TMUX" ]; }
 function is_screen_or_tmux_running() { is_screen_running || is_tmux_runnning; }
 function shell_has_started_interactively() { [ ! -z "$PS1" ]; }
-function is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
+function is_ssh_running() { [ ! -z "$SSH_CLIENT" ]; }
 
 function tmux_automatically_attach_session()
 {
@@ -29,13 +29,13 @@ function tmux_automatically_attach_session()
                 echo -n "Tmux: attach? (Y/n/num) "
                 read
                 if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" == '' ]]; then
-                    tmux attach-session
+                    exec tmux attach-session
                     if [ $? -eq 0 ]; then
                         echo "$(tmux -V) attached session"
                         return 0
                     fi
                 elif [[ "$REPLY" =~ ^[0-9]+$ ]]; then
-                    tmux attach -t "$REPLY"
+                    exec tmux attach -t "$REPLY"
                     if [ $? -eq 0 ]; then
                         echo "$(tmux -V) attached session"
                         return 0
@@ -49,7 +49,7 @@ function tmux_automatically_attach_session()
                 tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
                 tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
             else
-                tmux new-session && echo "tmux created new session"
+                exec tmux new-session && echo "tmux created new session"
             fi
         fi
     fi

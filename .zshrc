@@ -9,7 +9,6 @@ fi
 autoload -Uz compinit		# Use modern completion system
 setopt print_eight_bit		# 日本語ファイル名等8ビットを通す
 bindkey -v			# Vi キーバインド
-export LANG=ja_JP.UTF-8		# 文字コードの指定
 autoload -Uz colors && colors	# 色を使用出来るようにする
 autoload -Uz zmv		#zmvで一括置換
 alias zmv='noglob zmv -W'

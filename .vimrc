@@ -70,6 +70,8 @@ noremap x "_x
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim'
 Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 nnoremap :tree :NERDTreeToggle
@@ -81,9 +83,6 @@ set hidden
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
-
-" Better display for messages
-set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
