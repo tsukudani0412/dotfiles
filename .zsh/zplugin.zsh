@@ -30,9 +30,8 @@ zinit snippet PZT::modules/history/init.zsh
 zinit snippet PZT::modules/directory/init.zsh
 
 zinit from'gh-r' as'null' lucid for \
-	extract sbin'fzf' junegunn/fzf  \
-	sbin'gomi' b4b4r07/gomi \
-	sbin'btm' ClementTsang/bottom \
+	extract sbin'btm' ClementTsang/bottom \
+	sbin'fzf' junegunn/fzf \
 	sbin'bandwhich' imsnif/bandwhich \
 	bpick'*lnx*' sbin'procs' dalance/procs \
 	bpick'*musl*'  sbin'bin/exa' ogham/exa \

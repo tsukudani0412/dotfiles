@@ -31,4 +31,3 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 #if (which zprof > /dev/null 2>&1) ;then
 #  zprof
 #fi
-
