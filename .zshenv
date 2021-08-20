@@ -6,6 +6,6 @@ alias ls="exa -h -@ -m --git --icons --time-style=long-iso --group-directories-f
 alias l1="ls -1"
 alias la="ls -a"
 alias ll="ls -l"
-alias fvim='vim $(fzf)'
+alias fvim='vim $( fzf --ansi --preview "bat -f -r :30 {}" )'
 
 export LANG=en_US.utf-8

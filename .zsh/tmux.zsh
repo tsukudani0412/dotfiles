@@ -40,6 +40,9 @@ function tmux_automatically_attach_session()
 				elif [[ "$REPLY" == "K" ]]; then
 					tmux_kill_session
 				fi
+
+			else
+				tmux_create_session
 			fi
 		fi
 	fi
@@ -71,7 +74,7 @@ function tmux_kill_session()
 		tmux_automatically_attach_session
 
 	elif [[ "$REPLY" =~ ^[0-9]+$ ]]; then
-		tmux kill-session -t "$REPLY" 
+		tmux kill-session -t "$REPLY"
 	fi
 }
 
