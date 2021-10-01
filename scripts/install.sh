@@ -1,13 +1,10 @@
 #!/bin/bash
 set -eu
+ESC=$(printf '\033')
 DOTPATH=~/.dotfiles
 GITHUB_URL="https://github.com/koki-koba/dotfiles.git"
-#zsh 確認
-if !(type "make" > /dev/null 2>&1); then
-    echo "make not found"
-		exit
-fi
 
+printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m" 'Downloading dotfiles...'
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
 	if [ ! -e $DOTPATH ]; then
@@ -17,34 +14,15 @@ if type "git" > /dev/null 2>&1; then
 		git pull
 	fi
 
-# 使えない場合は curl か wget を使用する
-elif type "curl" > /dev/null 2>&1 || type "wget"> /dev/null 2>&1; then
-	tarball="https://github.com/koki-koba/dotfiles/archive/refs/heads/main.tar.gz"
-
-    # どっちかでダウンロードして，tar に流す
-	if type "curl" > /dev/null 2>&1; then
-		curl -L "$tarball"
-
-	elif type "wget" >/dev/null 2>&1; then
-		wget -O - "$tarball"
-
-	fi | tar zxv
-
-    # 解凍したら，DOTPATH に置く
-	mv -f dotfiles-main "$DOTPATH"
-
 else
-	echo "curl or wget required"
-	echo ""
-	false
+	tarball="https://github.com/koki-koba/dotfiles/archive/refs/heads/main.tar.gz"
+	curl -L "$tarball" | tar zxv
+	mv -f dotfiles-main "$DOTPATH"
+	cd $DOTPATH
 fi
 
-cd $DOTPATH
-
-echo "Initializing..."
-echo ""
+printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m" 'Initializing...'
 make init
 
-echo "Deploying..."
-echo ""
+printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m" 'Deploying dotfiles...'
 make deploy

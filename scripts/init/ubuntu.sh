@@ -1,8 +1,11 @@
 #!/bin/bash -eu
+whiptail --yesno "Setup dotfiles for Ubuntu\n\n Would you like to setup repository to use mirrors\n and install essential packages?" 0 0
 
-#apt mirror
-sudo sed -i.bak -r 's!(deb|deb-src) \S+!\1 mirror+http://mirrors.ubuntu.com/mirrors.txt!' /etc/apt/sources.list
-sudo apt update
+if [ $? ]; then
+	#apt mirror
+	sudo sed -i.bak -r 's!(deb|deb-src) \S+!\1 mirror+http://mirrors.ubuntu.com/mirrors.txt!' /etc/apt/sources.list
+	sudo apt update
 
-#install packages
-sudo apt -y install zsh git curl wget unzip make tmux vim
+	#install packages
+	sudo apt -y install zsh wget unzip tmux vim 
+fi

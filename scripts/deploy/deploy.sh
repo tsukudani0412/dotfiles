@@ -13,3 +13,4 @@ else
 fi
 #Deploy vim config
 ln -sfnv $DOTFILES/config/vim ~/.config/vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
