@@ -1,15 +1,16 @@
 #!/bin/bash -eu
 CURRENT=$(cd $(dirname $0);pwd)
 
-if [ -e /etc/debian_release ]; then
+if [ -e /etc/debian_release ] || [ -e /etc/debian_version ]; then
 	if [ -e /etc/lsb-release ]; then
 		distri="ubuntu"
 	else 
-		distri="debian"
+		#distri="debian"
 	fi
 fi
 
-${CURRENT}/${distri}.sh
+if [ ${distri} != "" ]; then
+	${CURRENT}/${distri}.sh
+fi
 
-yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-
+touch $DOTFILES/initialized

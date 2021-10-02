@@ -4,7 +4,7 @@ ESC=$(printf '\033')
 DOTPATH=~/.dotfiles
 GITHUB_URL="https://github.com/koki-koba/dotfiles.git"
 
-printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m" 'Downloading dotfiles...'
+printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m\n" 'Downloading dotfiles...'
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
 	if [ ! -e $DOTPATH ]; then
@@ -21,8 +21,12 @@ else
 	cd $DOTPATH
 fi
 
-printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m" 'Initializing...'
-make init
+if [ -e ${DOTPATH}/initialized ];then
+	printf "\n${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m\n" 'Skipped initialize process.'
+else
+	printf "\n${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m\n" 'Initializing...'
+	make init
+fi
 
-printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m" 'Deploying dotfiles...'
+printf "\n${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m\n" 'Deploying dotfiles...'
 make deploy
