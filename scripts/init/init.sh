@@ -1,4 +1,5 @@
 #!/bin/bash -eu
+DOTPATH=~/.dotfiles
 if [ -e ${DOTPATH}/initialized ]; then
 	exit
 fi
