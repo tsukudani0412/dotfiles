@@ -1,4 +1,5 @@
 #!/bin/bash -eu
+DOTFILES=~/.dotfiles
 CURRENT=$(cd $(dirname $0);pwd)
 distri=""
 
