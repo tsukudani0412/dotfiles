@@ -9,6 +9,7 @@ printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m\n" 'Downloa
 if type "git" > /dev/null 2>&1; then
 	if [ ! -e $DOTPATH ]; then
 		git clone --recursive "$GITHUB_URL" "$DOTPATH"
+		cd $DOTPATH
 	else
 		cd $DOTPATH
 		git pull
