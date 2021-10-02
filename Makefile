@@ -9,4 +9,4 @@ deploy:
 
 
 init:
-	@$(foreach val, $(wildcard ./scripts/init/init.sh), bash -c $(val);)
+	@bash ./scripts/init/init.sh
