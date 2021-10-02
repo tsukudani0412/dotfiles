@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/home/koki/.zinit/snippets/PZT::modules--history/init.zsh'
-let g:netrw_dirhist_2='/home/koki/shell-env/.vim'
-let g:netrw_dirhist_1='/home/koki/spigot1.17/plugins/EmptyServerStopper'
