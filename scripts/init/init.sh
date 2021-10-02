@@ -8,7 +8,7 @@ if [ -e /etc/debian_release ] || [ -e /etc/debian_version ]; then
 	fi
 fi
 
-if [ ${distri} != "" ]; then
+if [ -v ${distri} ]; then
 	${CURRENT}/${distri}.sh
 fi
 
