@@ -1,5 +1,6 @@
 export DOTPATH=~/.dotfiles
 export LANG=en_US.utf-8
+export PATH=$PATH:$HOME/.local/bin
 
 #history
 HISTFILE=$ZDOTDIR/.zsh_history
