@@ -1,16 +1,14 @@
 #!/bin/bash -eu
-
+DOTFILES=~/.dotfiles
 CURRENT=$(cd $(dirname $0);pwd)
-DISTRIB_ID=`cat /etc/lsb-release | grep DISTRIB_ID | cut -d "=" -f 2`
 
-case "$DISTRIB_ID" in 
-	[Uu]buntu* )
-		$CURRENT/ubuntu.sh
-		;;
-	
-	* )
-		;;
-esac
+if [ -e /etc/debian_release ] || [ -e /etc/debian_version ]; then
+	if [ -e /etc/lsb-release ]; then
+		distri="ubuntu"
+	fi
+fi
 
-yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ -v distri ]; then
+	${CURRENT}/${distri}.sh
+fi
+touch ${DOTFILES}/initialized
