@@ -9,3 +9,5 @@ alias ll="ls -l"
 alias fvim='vim $( fzf --ansi --preview "bat -f -r :30 {}" )'
 
 export LANG=en_US.utf-8
+
+export PATH=$PATH:$HOME/.local/bin
