@@ -1,6 +1,56 @@
+" install dir {{{
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" }}}
+
+" dein installation check {{{
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . s:dein_repo_dir
+endif
+" }}}
+
+if &compatible
+  set nocompatible " Be iMproved
+endif
+
+" Required:
+" Add the dein installation directory into runtimepath
+set runtimepath+={s:dein_dir}
+
+" Required:
+call dein#begin(s:dein_dir)
+
+  " .toml file
+  let s:rc_dir = expand('~/.vim')
+  if !isdirectory(s:rc_dir)
+    call mkdir(s:rc_dir, 'p')
+  endif
+  let s:toml = s:rc_dir . '/dein.toml'
+
+  " read toml and cache
+  call dein#load_toml(s:toml, {'lazy': 0})
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+ call dein#install()
+endif
+
 " setting
+set runtimepath+=$HOME/.vim
 "文字コードをUFT-8に設定
 set fenc=utf-8
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 " バックアップファイルを作らない
 set nobackup
 " スワップファイルを作らない
@@ -39,8 +89,6 @@ syntax enable
 set mouse=a
 
 " Tab系
-" 不可視文字を可視化(タブが「▸-」と表示される)
-set list listchars=tab:\▸\-
 " Tab文字を半角スペースにする
 "set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
@@ -66,54 +114,3 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "xからヤンクレジスタを保護
 noremap PP "0p
 noremap x "_x
-
-call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-
-nnoremap :tree :NERDTreeToggle
-
-" Powerline系フォントを利用する
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline_theme = 'tomorrow'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-
-

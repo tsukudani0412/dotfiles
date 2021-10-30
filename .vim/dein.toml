@@ -11,3 +11,24 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]] # toml syntax
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+[[plugins]]
+repo = 'sudar/vim-arduino-syntax'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'neomake/neomake'
+
+[[plugins]]
+repo = 'coddingtonbear/neomake-platformio'
