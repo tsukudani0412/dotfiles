@@ -2,7 +2,7 @@
 set -eu
 ESC=$(printf '\033')
 DOTPATH=~/.dotfiles
-GITHUB_URL="https://github.com/koki-koba/dotfiles.git"
+GITHUB_URL="https://github.com/tsukudani0412/dotfiles.git"
 
 printf "${ESC}[34m%s${ESC}[m" ' - ' && printf "${ESC}[3;4m%s${ESC}[m\n" 'Downloading dotfiles...'
 # git が使えるなら git
@@ -16,7 +16,7 @@ if type "git" > /dev/null 2>&1; then
 	fi
 
 else
-	tarball="https://github.com/koki-koba/dotfiles/archive/refs/heads/main.tar.gz"
+	tarball="https://github.com/tsukudani0412/dotfiles/archive/refs/heads/main.tar.gz"
 	curl -L "$tarball" | tar zxv
 	mv -f dotfiles-main "$DOTPATH"
 	cd $DOTPATH
