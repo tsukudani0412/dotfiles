@@ -1,14 +1,6 @@
 # Require
 
-zsh
-zplug
+zsh vim tmux git
 
-vim
-vim-monokai
-
-peco
-
-cargo
-curl https://sh.rustup.rs -sSf | sh
-exa bat bandwhich procs bottom bingrep hexyl
-
+## Setup
+```sh -c "$(curl -L meguru.moe/sh)"```
