@@ -46,6 +46,7 @@ if dein#check_install()
 endif
 
 " setting
+set belloff=all
 set runtimepath+=$HOME/.vim
 "文字コードをUFT-8に設定
 set fenc=utf-8
@@ -54,6 +55,7 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 " バックアップファイルを作らない
 set nobackup
 " スワップファイルを作らない
+set noundofile
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
@@ -114,3 +116,9 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "xからヤンクレジスタを保護
 noremap PP "0p
 noremap x "_x
+
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+let g:lsp_diagnostics_echo_cursor = 1
