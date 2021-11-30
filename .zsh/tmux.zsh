@@ -19,7 +19,7 @@ function tmux_automatically_attach_session()
 		fi
 
 	else
-		if shell_has_started_interactively && ! is_ssh_running; then
+		if shell_has_started_interactively && is_ssh_running; then
 			if ! is_exists 'tmux'; then
 				echo 'Error: tmux command not found' 2>&1
 				return 1
@@ -28,7 +28,7 @@ function tmux_automatically_attach_session()
 			if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '.*[])]$'; then
 				# detached session exists
 				REPLY=`{ tmux list-sessions; echo "C: Create session"; echo "K: Kill session" } | \
-					~/.zinit/polaris/bin/fzf --reverse --ansi | \
+					fzf --reverse --ansi | \
 					cut -d ":" -f 1`
 
 				if [[ "$REPLY" =~ ^[0-9]+$ ]]; then

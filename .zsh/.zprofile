@@ -7,4 +7,3 @@ alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
 alias fvim='vim $( fzf --ansi --preview "bat -f -r :30 {}" )'
-alias lf='tail -f  | bat --paging=never -l log'

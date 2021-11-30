@@ -1,4 +1,6 @@
+source $ZDOTDIR/zplugin.zsh
 source $ZDOTDIR/tmux.zsh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -16,11 +18,9 @@ alias zmv='noglob zmv -W'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 unsetopt promptcr
-#lsに色付け
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source $ZDOTDIR/zplugin.zsh
 source $ZDOTDIR/function.zsh
 
 
