@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -eu
 ESC=$(printf '\033')
 DOTPATH=~/.dotfiles
