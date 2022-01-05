@@ -2,6 +2,8 @@ export DOTPATH=~/.dotfiles
 export LANG=en_US.utf-8
 export PATH=$PATH:$HOME/.local/bin
 export ZINIT_HOME=~/.zinit/zinit.git
+export DENO_INSTALL="/home/koki/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 #history
 HISTFILE=$ZDOTDIR/.zsh_history
 setopt share_history
