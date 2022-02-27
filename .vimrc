@@ -46,7 +46,6 @@ if dein#check_install()
 endif
 
 " setting
-set belloff=all
 set runtimepath+=$HOME/.vim
 "文字コードをUFT-8に設定
 set fenc=utf-8
@@ -55,7 +54,6 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 " バックアップファイルを作らない
 set nobackup
 " スワップファイルを作らない
-set noundofile
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
@@ -148,4 +146,3 @@ call ddc#custom#patch_global('sourceOptions', {
 call ddc#enable()
 inoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-
