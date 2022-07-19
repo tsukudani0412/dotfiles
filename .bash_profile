@@ -5,3 +5,4 @@ export LANG=en_US.utf-8
 if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
+. "$HOME/.cargo/env"

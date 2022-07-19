@@ -12,3 +12,4 @@ setopt hist_reduce_blanks
 setopt hist_save_no_dups
 setopt hist_no_store
 setopt inc_append_history
+. "$HOME/.cargo/env"
