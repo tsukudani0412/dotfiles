@@ -29,9 +29,11 @@ call dein#begin(s:dein_dir)
     call mkdir(s:rc_dir, 'p')
   endif
   let s:toml = s:rc_dir . '/dein.toml'
+	let s:lazy_toml = s:rc_dir . '/lazy.toml'
 
   " read toml and cache
   call dein#load_toml(s:toml, {'lazy': 0})
+	call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
 " Required:
 call dein#end()
@@ -65,6 +67,7 @@ set showcmd
 
 " 見た目系
 colorscheme molokai
+set guifont=HackGenNerd:h16:cSHIFTJIS:qDRAFT
 " 行番号を表示
 set number
 " 現在の行を強調表示
@@ -120,29 +123,3 @@ noremap x "_x
 " F2 NERDTree
 nnoremap <F2> :NERDTreeToggle<CR>
 
-call ddc#custom#patch_global('completionMenu', 'pum.vim')
-call ddc#custom#patch_global('sources', [
- \ 'around',
- \ 'vim-lsp',
- \ 'file'
- \ ])
-call ddc#custom#patch_global('sourceOptions', {
- \ '_': {
- \   'matchers': ['matcher_head'],
- \   'sorters': ['sorter_rank'],
- \   'converters': ['converter_remove_overlap'],
- \ },
- \ 'around': {'mark': 'Around'},
- \ 'vim-lsp': {
- \   'mark': 'LSP', 
- \   'matchers': ['matcher_head'],
- \   'forceCompletionPattern': '\.|:|->|"\w+/*'
- \ },
- \ 'file': {
- \   'mark': 'file',
- \   'isVolatile': v:true, 
- \   'forceCompletionPattern': '\S/\S*'
- \ }})
-call ddc#enable()
-inoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
-inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
