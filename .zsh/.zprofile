@@ -12,4 +12,5 @@ alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
 alias fvim='vim $( fzf --ansi --preview "bat -f -r :30 {}" )'
-alias vi='vim'
+alias vi='nvim'
+

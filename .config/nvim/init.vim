@@ -34,7 +34,7 @@ call dein#begin(s:dein_dir)
   " read toml and cache
   call dein#load_toml(s:toml, {'lazy': 0})
 	call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
+	call dein#add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
 " Required:
 call dein#end()
 
