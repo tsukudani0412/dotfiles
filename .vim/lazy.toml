@@ -27,6 +27,7 @@ hook_source = '''
         \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
         \ })
   call ddc#enable()
+  autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dictionary/php.dict filetype=php
 '''
 
 [[plugins]]
@@ -57,3 +58,7 @@ EOF
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+[[plugin]]
+repo = 'alvan/vim-closetag'
+
