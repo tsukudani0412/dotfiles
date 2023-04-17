@@ -13,7 +13,7 @@ zinit from'gh-r' as'program' lucid for \
 	pick'btm' ClementTsang/bottom \
 	pick'bandwhich' imsnif/bandwhich \
 	bpick'*linux_amd64*' pick'fzf' 'junegunn/fzf' \
-	bpick'*lnx*' pick'procs' dalance/procs \
+	bpick'*x86_64-linux*' pick'procs' dalance/procs \
 	bpick'*musl*' pick'bin/exa' ogham/exa \
 	bpick'*linux-musl*' pick'hexyl*/hexyl' @sharkdp/hexyl \
 	bpick'*linux-musl*' pick'bat*/bat' @sharkdp/bat
