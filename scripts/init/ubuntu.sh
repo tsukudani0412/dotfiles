@@ -7,5 +7,5 @@ if [ $? ]; then
 	sudo apt update
 
 	#install packages
-	sudo apt -y install zsh wget unzip tmux vim 
+	sudo apt -y install zsh wget unzip tmux neovim 
 fi
