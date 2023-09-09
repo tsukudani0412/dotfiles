@@ -1,1 +1,2 @@
 --theme="Monokai Extended"
+--map-syntax='*.c:C'

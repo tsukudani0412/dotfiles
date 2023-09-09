@@ -89,6 +89,8 @@ nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
 
+set scrolloff=4
+
 set mouse=a
 
 let g:denops_disable_version_check=1
@@ -119,8 +121,12 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 noremap PP "0p
 noremap x "_x
 
-" F2 NERDTree
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+let g:fern#renderer = 'nerdfont'
+
+nnoremap <C-c><C-c> :rightbelow 10sp <CR>:terminal <CR>
+tnoremap <Esc> <C-\><C-n>
+autocmd TermOpen * startinsert
 
 " auto close tag
 let g:closetag_filenames = '*.html,*.xhtml,*.php'

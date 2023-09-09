@@ -6,11 +6,12 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=249' 
 
 alias cat="bat"
-alias ls="exa -h -@ -m --git --icons --time-style=long-iso --group-directories-first"
+alias ls="eza -h -@ -m --git --icons --time-style=long-iso --group-directories-first"
 alias l1="ls -1"
 alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
-alias fvim='vim $( fzf --ansi --preview "bat -f -r :30 {}" )'
+alias fvi='vi $( fzf --ansi --preview "bat -f -r :30 {}" )'
 alias vi='nvim'
 alias mtr='mtr -z'
+alias :q='exit'
