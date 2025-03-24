@@ -16,7 +16,7 @@ zinit wait'0' from'gh-r' as'program' lucid light-mode for \
 	bpick'*x86_64-linux*' pick'procs' 'dalance/procs' \
 	bpick'*linux-musl*' pick'hexyl*/hexyl' '@sharkdp/hexyl' \
 	bpick'*linux-musl*' pick'bat*/bat' '@sharkdp/bat' \
-  bpick'*x86_64-unknown-linux-gnu*' mv'x86_64-unknown-linux-gnu-eza -> eza' pick'eza' 'eza-community/eza' \
+  bpick'*x86_64-unknown-linux-gnu*' pick'eza' 'eza-community/eza' \
   bpick'*x86_64-unknown-linux-musl*' pick'delta*/delta' '@dandavison/delta'
 
 
